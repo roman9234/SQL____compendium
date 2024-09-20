@@ -6,7 +6,4 @@ connection = psycopg2.connect(host=host,user=user,password=password,database=db_
 connection.autocommit = True
 cursor = connection.cursor()
 
-###############################################################################
-cursor.execute("SELECT * FROM sys.databases d")
-res = cursor.fetchall()
-print(res)
+# TODO доделать

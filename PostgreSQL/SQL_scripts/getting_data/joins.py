@@ -6,4 +6,4 @@ connection = psycopg2.connect(host=host,user=user,password=password,database=db_
 connection.autocommit = True
 cursor = connection.cursor()
 
-###############################################################################
+# TODO доделать
