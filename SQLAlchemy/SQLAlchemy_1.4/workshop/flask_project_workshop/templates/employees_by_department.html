@@ -1,0 +1,12 @@
+
+{% extends "layout.html" %}
+{% block body %}
+    <h2>Работники отдела {{department_name}}</h2>
+    {% for employee in employees %}
+        <ul>
+            <li> Имя : {{ employee.fullname }}</li>
+            <li> Добавлен : {{ employee.added }}</li>
+        </ul>
+        <hr>
+    {% endfor %}
+{% endblock %}

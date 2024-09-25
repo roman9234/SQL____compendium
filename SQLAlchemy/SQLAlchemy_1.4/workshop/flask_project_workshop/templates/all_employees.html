@@ -1,0 +1,23 @@
+
+{% extends "layout.html" %}
+{% block body %}
+    <h2>Все сотрудники</h2>
+    {% for employee in employees %}
+        <ul>
+            <li> Имя : {{ employee.fullname }}</li>
+            <li> Добавлен : {{ employee.added }}</li>
+            <li>
+                <a href="{{ url_for('employees_by_department',department_id=employee.department_id) }}"> Отдел : {{ employee.department.name }}</a>
+            </li>
+        </ul>
+        <hr>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+
