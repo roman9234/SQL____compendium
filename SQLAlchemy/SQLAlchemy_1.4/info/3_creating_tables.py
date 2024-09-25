@@ -1,4 +1,4 @@
-# SQLAlchemy_1.4 <= 1.4
+# SQLAlchemy <= 1.4
 # актуальная версия SQLAlchemy_1.4 > 2.0
 # но Flusk использует 1.4
 # https://docs.sqlalchemy.org/en/20/orm/quickstart.html
@@ -8,6 +8,7 @@ from sqlalchemy.orm import declarative_base, relationship
 
 # 0 - Генерация схемы БД
 from sqlalchemy import create_engine
+
 engine = create_engine("sqlite://", echo=True)
 
 
@@ -27,7 +28,7 @@ class User(Base):
 
     # первичный ключ
     id = Column(Integer, primary_key=True)
-    # обязательная колонка не длинее 30 символов
+    # обязательная колонка не длиннее 30 символов
     name = Column(String(30), nullable=False)
     # не обязательная к заполнению колонка
     fullname = Column(String, nullable=True)
@@ -50,7 +51,7 @@ class Address(Base):
     __tablename__ = "address"
     id = Column(Integer, primary_key=True)
     email_address = Column(String, nullable=False)
-    user_id = Column(Integer, ForeignKey("user_account.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("user_account._id"), nullable=False)
     user = relationship("User", back_populates="addresses")
 
     def __repr__(self) -> str:
