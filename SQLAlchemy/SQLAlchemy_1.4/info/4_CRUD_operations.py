@@ -122,7 +122,7 @@ db.session.commit()
 # DELETE FROM address WHERE address.id = ?
 
 
-# Delete API
+# Delete в API
 @app.route("/user/<int:_id>/delete", methods=["POST"])
 def user_delete(_id):
     _user = db.get_or_404(User, _id)

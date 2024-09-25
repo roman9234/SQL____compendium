@@ -1,24 +1,13 @@
-# SQLAlchemy <= 1.4
-# актуальная версия SQLAlchemy_1.4 > 2.0
-# но Flusk использует 1.4
-# https://docs.sqlalchemy.org/en/20/orm/quickstart.html
-
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import declarative_base, relationship
 
-# 0 - Генерация схемы БД. Этот код нужен только для вывода SQL запросов, сормированных SQLAlchemy
-from sqlalchemy import create_engine
-engine = create_engine("sqlite://", echo=True)
+from flask import Flask, request, redirect, url_for, render_template
+from flask_sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy()
 
-# 1 - объявляем базовый класс. Он один на всё приложение и в нём аккумулируются все таблицы
 Base = declarative_base()
 
-
-# 2 - от этого класса мы наследуем нашу модель
-
-
-# SQLAlchemy_1.4 1.4
 class User(Base):
     # 1 свойство - название таблицы. Модель называется User, таблица user_account
     __tablename__ = "user_account"
@@ -56,11 +45,3 @@ class Address(Base):
     def __repr__(self) -> str:
 
         return f"Address(email_address={self.email_address!r})"
-
-
-# вывод в консоль сгенерированных команд SQL
-Base.metadata.create_all(engine)
-
-
-
-
