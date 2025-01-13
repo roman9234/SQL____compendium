@@ -7,3 +7,5 @@ connection.autocommit = True
 cursor = connection.cursor()
 
 # TODO доделать
+
+# В разделе Работа с ORM есть краткое повторение

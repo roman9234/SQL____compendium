@@ -10,6 +10,7 @@ app = Flask(__name__)
 # лучше делать через переменную окружения
 # app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///test.db'
+
 # db = SQLAlchemy(app)
 db.init_app(app)
 
